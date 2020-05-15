@@ -16,6 +16,7 @@ public class pelaaja_opetus : MonoBehaviour
 
     private CircleCollider2D myFeet;
     private float painovoima;
+    private Animator anime;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,7 @@ public class pelaaja_opetus : MonoBehaviour
         posX = transform.position.x;
         myFeet = GetComponent<CircleCollider2D>();
         painovoima = rb2d.gravityScale;
+        anime = GetComponent<Animator>();
 
 
     }
@@ -43,6 +45,8 @@ public class pelaaja_opetus : MonoBehaviour
 
         if (moveHorizontal != 0)
         {
+            anime.SetBool("walking", true);
+
             if (transform.position.x < posX)
             {
                 /*Debug.Log("Moving left - " + transform.position.x);*/
@@ -63,6 +67,10 @@ public class pelaaja_opetus : MonoBehaviour
             }
 
             posX = transform.position.x;
+        }
+        else
+        {
+            anime.SetBool("walking", false);
         }
 
         Debug.Log("jalat osuvat maahan" + myFeet.IsTouchingLayers(LayerMask.GetMask("Ground")));
