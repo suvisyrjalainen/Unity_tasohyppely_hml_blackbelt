@@ -45,7 +45,7 @@ public class pelaaja_opetus : MonoBehaviour
 
         if (moveHorizontal != 0)
         {
-            anime.SetBool("walking", true);
+            anime.SetBool("Walking", true);
 
             if (transform.position.x < posX)
             {
@@ -70,7 +70,7 @@ public class pelaaja_opetus : MonoBehaviour
         }
         else
         {
-            anime.SetBool("walking", false);
+            anime.SetBool("Walking", false);
         }
 
         Debug.Log("jalat osuvat maahan" + myFeet.IsTouchingLayers(LayerMask.GetMask("Ground")));
