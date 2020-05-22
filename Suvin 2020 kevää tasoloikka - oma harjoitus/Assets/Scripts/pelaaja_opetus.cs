@@ -87,9 +87,11 @@ public class pelaaja_opetus : MonoBehaviour
             float moveVertical = Input.GetAxis("Vertical");
             rb2d.velocity = new Vector2(moveHorizontal, moveVertical * kiipeilynopeus);
             rb2d.gravityScale = 0;
+            anime.SetBool("Climbing", true);
         }
         else
         {
+            anime.SetBool("Climbing", false);
             rb2d.gravityScale = painovoima;
         }
     }
